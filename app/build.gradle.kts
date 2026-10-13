@@ -9,6 +9,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     application
+    alias(libs.plugins.spring.boot)
 }
 
 repositories {
@@ -17,6 +18,16 @@ repositories {
 }
 
 dependencies {
+    // Lombok
+    compileOnly(libs.lombok) // compilation
+    annotationProcessor(libs.lombok) // annotation processing
+    testCompileOnly(libs.lombok)
+    testAnnotationProcessor(libs.lombok)
+
+    // Spring Boot
+    implementation(platform(libs.spring.dependency.management))
+    implementation(libs.spring.boot.starter.web)
+
     // This dependency is used by the application.
     implementation(libs.guava)
 }
@@ -40,5 +51,5 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = "com.ntunghoi.trading.App"
+    mainClass = "com.ntunghoi.trading.TradingApplication"
 }

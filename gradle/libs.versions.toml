@@ -3,6 +3,18 @@
 
 [versions]
 guava = "33.5.0-jre"
+lombok = "1.18.44"
+spring-boot = "4.1.0-RC1"
 
 [libraries]
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
+
+# Lombok
+lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombok" }
+
+# Spring ramework
+spring-dependency-management = { group = "org.springframework.boot", name = "spring-boot-dependencies", version.ref = "spring-boot" }
+spring-boot-starter-web = { group = "org.springframework.boot", name = "spring-boot-starter-web", version.ref = "spring-boot" }
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
